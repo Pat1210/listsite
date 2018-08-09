@@ -1,0 +1,30 @@
+{% extends 'listapp/base.html' %}
+
+{% block header %}
+  <h2>{{ topic }}</h2>
+{% endblock %}
+
+{% block content %}
+  <p>
+    <a href="{% url 'listapp:new_entry' topic.id %}">Add new entry</a>
+  </p>
+
+    {% for entry in entries %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>
+            {{ entry.date_added|date:'M d, Y H:i' }}
+            <small>
+              <a href="{% url 'listapp:edit_entry' entry.id %}">Edit Entry</a>
+            </small>
+          </h3>
+        </div>
+        <div class="panel-body">
+          {{ entry.text|linebreaks }}
+        </div>
+      </div><!-- panel -->
+      {% empty %}
+        There are no entries for this topic.
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'listapp/base.html' %}
+
+{% block header %}
+    <div class="jumbotron">
+        <h1>Track your life.</h1>
+    </div>
+{% endblock header %}
+
+{% block content %}
+<h2>
+  <a href="{% url 'users:signup' %}">Create an account</a> to create lists about any number of topics.
+</h2>
+<h2>
+  Whenever you want to add something to a list topic, make an entry and fill it in with any information you want.
+</h2>
+{% endblock content %}
